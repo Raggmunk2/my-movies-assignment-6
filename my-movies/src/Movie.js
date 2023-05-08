@@ -1,16 +1,17 @@
 import React, {useState, useRef} from "react";
+import {ListGroupItem} from 'react-bootstrap';
 
-export default function Movie(props){
+
+export default function Movie(movie){
     return (
-        {/* <li data-title={props.item.title} data-grade={props.utem.grade}>
-            {props.item.title}
+        <ListGroupItem as="li" data-title={movie.title} data-grade={movie.grade}>
+            {movie.title}
             <img src="./images/delete.png" alt="Delete movie" className="delete-movie-icon"/>
-            <img src='./images/star.png' alt='Star'/>
-            {getStars(props.item.grade)}
-        </li> */}
+            {getStars(movie.grade)}
+        </ListGroupItem> 
     )
 }
 
 function getStars(numOfStars){
-    return "<img src='./images/star.png' alt='star'".repeat(numOfStars);
+    return "<img src='images/star.png' alt='star'".repeat(numOfStars);
 }

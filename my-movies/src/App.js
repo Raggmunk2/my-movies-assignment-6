@@ -5,18 +5,21 @@ import Movies from './Movies';
 
 
 function App() {
-  const [movie, setMovie] = useState('');
+  const [movie, setMovie] = useState([{
+    title: null,
+    grade: null,
+  }]);
   const callbackFromMovieForm = (movieData) => {
     setMovie(movieData);
-    console.log(movieData);
-    console.log(movie);
+    console.log(movieData); // ger rätt data
+    //console.log(movie); //funkar inte
   }
   return (
     <div className="container">
         <h1 className="header">Min Filmlista</h1>
         <h3>Lägg till en film</h3>
         <MovieAddForm callback={callbackFromMovieForm}/>
-        <Movies/>
+        <Movies props={movie}/>
     </div>
   );
 }

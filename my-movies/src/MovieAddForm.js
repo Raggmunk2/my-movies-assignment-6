@@ -4,8 +4,8 @@ import {Container, Form, Button} from 'react-bootstrap';
 
 export default function MovieAddForm({callback}){
     const [movies, setMovies] = useState([{
-        title: null,
-        grade: null,
+        title: "",
+        grade: 0,
     }]);
     const titleRef = useRef();
     const gradeRef = useRef();
@@ -15,20 +15,18 @@ export default function MovieAddForm({callback}){
         console.log(gradeRef.current.value)
         console.log(titleRef.current.value)
         if(titleRef.current.value === "" || gradeRef.current.value === undefined || gradeRef.current.value == 0 || gradeRef.current.value === ""){
-            alert("Skriv en titel och ett betyg!")
+            alert("Skriv en titel och ett betyg!");
         }else{
-            setMovies([...movies, {
+            setMovies( {
 
                 title: titleRef.current.value,
                 grade: gradeRef.current.value,
             
-            }])
-            console.log(gradeRef.current.value)
-            console.log(titleRef.current.value)
+            })
             console.log(movies)
             callback(movies)
             titleRef.current.value = ""
-            gradeRef.current.value = -1
+            gradeRef.current.value = 0
             e.target.reset();
         }
         return movies;

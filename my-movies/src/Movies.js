@@ -1,5 +1,5 @@
 import React, {useState, useRef} from "react";
-import {Container, Form, Button} from 'react-bootstrap';
+import {Container, ListGroup} from 'react-bootstrap';
 import Movie from "./Movie";
 
 export default function Movies(movieItems){
@@ -7,14 +7,14 @@ export default function Movies(movieItems){
     function deleteMovie(){
 
     }
-
+    
     return (
         <Container className='container'>
             <h1 className='header'>Inlagda filmer</h1>
-            <ul className="movie-list">
-                {/* {movieItems.map(movie => <Movie key={movie.title} item={movie} deleteMovie={deleteMovie}/>)}
- */}
-            </ul>
+           <ListGroup as="ul" className="movie-list">
+                <Movie key={movieItems.title} item={movieItems} deleteMovie={deleteMovie}/>
+            {/*                 {movieItems.map(movie => <Movie key={movie.title} item={movie} deleteMovie={deleteMovie}/>)}*/}
+            </ListGroup>
         </Container>
     )
 }
