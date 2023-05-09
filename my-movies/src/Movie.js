@@ -1,14 +1,13 @@
 import React, {useState, useRef} from "react";
-import {ListGroupItem} from 'react-bootstrap';
 
 
 export default function Movie(movie){
     return (
-        <ListGroupItem as="li" data-title={movie.title} data-grade={movie.grade}>
-            {movie.title}
+        <li className="list-group-item" data-title={movie.item.title} data-grade={movie.item.grade}>
+            {movie.item.title}
             <img src="https://png.pngtree.com/png-clipart/20191121/original/pngtree-3d-red-delete-icon-png-image_5142994.jpg" alt="Delete movie" className="delete-movie-icon"/>
-            {getStars(movie.grade)}
-        </ListGroupItem> 
+            {getStars(movie.item.grade)}
+        </li> 
     )
 }
 
