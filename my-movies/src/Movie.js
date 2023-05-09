@@ -1,16 +1,25 @@
-import React, {useState, useRef} from "react";
+import React from "react";
+import deleteBtn from './/images/delete.png'
+import star from './/images/star.png'
 
 
-export default function Movie(movie){
+export default function Movie(props){
+    
     return (
-        <li className="list-group-item" data-title={movie.item.title} data-grade={movie.item.grade}>
-            {movie.item.title}
-            <img src="https://png.pngtree.com/png-clipart/20191121/original/pngtree-3d-red-delete-icon-png-image_5142994.jpg" alt="Delete movie" className="delete-movie-icon"/>
-            {getStars(movie.item.grade)}
+        <li className="list-group-item" data-title={props.item.title} data-grade={props.item.grade}>
+            {props.item.title}
+            
+            <img src={deleteBtn} alt="Delete movie" className="delete-movie-icon" onClick={() => props.deleteMovie(props.item.title)}/>
+            <img src="https://w7.pngwing.com/pngs/134/138/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png" alt='star'/>
+            {`<img src='/images/star.png' alt='Star'/>`.repeat(props.item.grade)}
         </li> 
     )
+        
 }
 
 function getStars(numOfStars){
-    return "<img src='https://png.pngtree.com/png-clipart/20220926/original/pngtree-shiny-gold-star-clipart-illustration-design-png-image_8633179.png' alt='star'".repeat(numOfStars);
+    
+    /* let starElement = `<img src='https://w7.pngwing.com/pngs/134/138/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png' alt='star'/>`
+    return starElement.repeat(numOfStars); */
+    return "<img src='https://w7.pngwing.com/pngs/134/138/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png' alt='Star'>".repeat(numOfStars);
 }
