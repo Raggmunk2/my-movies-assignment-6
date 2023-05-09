@@ -4,26 +4,40 @@ import Movie from "./Movie";
 export default function MovieAddForm(){
     const [movies, setMovies] = useState([
         {
-            title: "My first movie",
-            grade: '2'
+            title: "Die hard",
+            grade: '5'
         }
     ]);
-    
+    /**
+     * Function to delete a movie from the list
+     * @param {The title to filter} title 
+     */
     function deleteMovie(title){
         setMovies(movies.filter((item) => item.title !== title));
     }
+    /**
+     * Sorting function in alphabetic order
+     */
     function sortByAlpha(){        
         const sorted = [...movies].sort((a,b) => a.title.localeCompare(b.title))
         setMovies(sorted);
     }
+    /**
+     * Sorting function in grade order
+     */
     function sortByGrade(){
         console.log(movies);
         const sorted = [...movies].sort((a,b) => a.grade.localeCompare(b.grade));
         setMovies(sorted);
     }
+
     const titleRef = useRef();
     const gradeRef = useRef();
-
+    /**
+     * Function to add a movie.
+     * Checks if there's not any empty values before adding
+     * @param {Event} e 
+     */
     function addMovie(e){
         e.preventDefault();
         if(titleRef.current.value === "" || gradeRef.current.value === undefined || gradeRef.current.value == 0 || gradeRef.current.value === ""){
@@ -40,7 +54,6 @@ export default function MovieAddForm(){
 
     return(
         <div className="container">
-
           <h3>Lägg till en film</h3>
             <form id="form" onSubmit={addMovie}>
                 <fieldset>
