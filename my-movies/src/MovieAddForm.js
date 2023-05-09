@@ -60,7 +60,6 @@ export default function MovieAddForm(){
             </form>
             <h2 className='header'>Inlagda filmer</h2>
              <ul  className="list-group">
-                
                  {movies.map((movie, i) => 
                  <Movie key={movies[i].title} item={movie} deleteMovie={deleteMovie} />)}
             </ul>
